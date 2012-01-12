@@ -1,0 +1,4 @@
+[
+    { "caption": "-", "id": "file" },
+    { "command": "rabbit_commit", "caption": "Commit", "args": {"paths": []} }
+]
