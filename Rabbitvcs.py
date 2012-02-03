@@ -55,6 +55,15 @@ class RabbitCommand():
         
         subprocess.call("rabbitvcs browser " + path, shell=True)
 
+    def status(self, paths):
+        path = self.get_path(paths)
+        if not path:
+            return
+
+        if os.path.isfile(path):
+            path = os.path.dirname(path)
+        
+        subprocess.call("rabbitvcs checkmods " + path, shell=True)
 
 class RabbitCommitCommand(sublime_plugin.WindowCommand, RabbitCommand):
     def run(self, paths=[], parameters=None):
@@ -67,3 +76,7 @@ class RabbitUpdateCommand(sublime_plugin.WindowCommand, RabbitCommand):
 class RabbitBrowseCommand(sublime_plugin.WindowCommand, RabbitCommand):
     def run(self, paths=[], parameters=None):
         self.browse(paths)
+        
+class RabbitStatusCommand(sublime_plugin.WindowCommand, RabbitCommand):
+    def run(self, paths=[], parameters=None):
+        self.status(paths)        

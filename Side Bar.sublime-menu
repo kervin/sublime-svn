@@ -1,5 +1,6 @@
 [
 	{ "caption": "Commit", "command": "rabbit_commit", "args": {"paths": []} },
 	{ "caption": "Update", "command": "rabbit_update", "args": {"paths": []} },
-	{ "caption": "Browse Repo", "command": "rabbit_browse", "args": {"paths": []} }
+	{ "caption": "Browse Repo", "command": "rabbit_browse", "args": {"paths": []} },
+        { "caption": "Status", "command": "rabbit_status", "args": {"paths": []} }
 ]
