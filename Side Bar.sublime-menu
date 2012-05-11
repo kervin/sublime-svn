@@ -1,7 +1,6 @@
 [
 	{ "caption": "Commit", "command": "rabbit_commit", "args": {"paths": []} },
 	{ "caption": "Update", "command": "rabbit_update", "args": {"paths": []} },
-
     {
     "caption": "Svn More..",
     "children":
@@ -10,10 +9,8 @@
         { "caption": "Show Log", "command": "rabbit_log", "args": {"paths": []} },
         { "caption": "Diff", "command": "rabbit_diff", "args": {"paths": []} },
         { "caption": "Delete", "command": "rabbit_delete", "args": {"paths": []} },
-        { "caption": "Add", "command": "rabbit_add", "args": {"paths": []} }
+        { "caption": "Add", "command": "rabbit_add", "args": {"paths": []} },
+        { "caption": "Status", "command": "rabbit_status", "args": {"paths": []}}
     ]
     }
-
 ]
-
-

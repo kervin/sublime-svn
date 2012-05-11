@@ -59,3 +59,7 @@ class RabbitDeleteCommand(sublime_plugin.WindowCommand, RabbitCommand):
 class RabbitAddCommand(sublime_plugin.WindowCommand, RabbitCommand):
     def run(self, paths=[], parameters=None):
         self.svncommand(paths, "add")
+        
+class RabbitStatusCommand(sublime_plugin.WindowCommand, RabbitCommand):
+    def run(self, paths=[], parameters=None):
+        self.svncommand(paths, "checkmods")        
