@@ -62,4 +62,4 @@ class RabbitAddCommand(sublime_plugin.WindowCommand, RabbitCommand):
         
 class RabbitStatusCommand(sublime_plugin.WindowCommand, RabbitCommand):
     def run(self, paths=[], parameters=None):
-        self.svncommand(paths, "checkmods")        
+        self.svncommand(paths, "checkmods") 
