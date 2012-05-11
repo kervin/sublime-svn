@@ -1,5 +1,19 @@
 [
 	{ "caption": "Commit", "command": "rabbit_commit", "args": {"paths": []} },
 	{ "caption": "Update", "command": "rabbit_update", "args": {"paths": []} },
-	{ "caption": "Browse Repo", "command": "rabbit_browse", "args": {"paths": []} }
+
+    {
+    "caption": "Svn More..",
+    "children":
+    [
+        { "caption": "Browse Repo", "command": "rabbit_browse", "args": {"paths": []} },
+        { "caption": "Show Log", "command": "rabbit_log", "args": {"paths": []} },
+        { "caption": "Diff", "command": "rabbit_diff", "args": {"paths": []} },
+        { "caption": "Delete", "command": "rabbit_delete", "args": {"paths": []} },
+        { "caption": "Add", "command": "rabbit_add", "args": {"paths": []} }
+    ]
+    }
+
 ]
+
+

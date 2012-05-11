@@ -23,47 +23,39 @@ class RabbitCommand():
             return self.window.folders()[0]
         else:
             sublime.error_message(__name__ + ': No place to open terminal to')
-    
-    def commit(self, paths):
+
+    def svncommand(self, paths, command):
         path = self.get_path(paths)
         if not path:
             return
 
-        if os.path.isfile(path):
-            path = os.path.dirname(path)
-        
-        subprocess.call("rabbitvcs commit " + path, shell=True) 
-    
-    def update(self, paths):
-        path = self.get_path(paths)
-        if not path:
-            return
-
-
-        if os.path.isfile(path):
-            path = os.path.dirname(path)
-        
-        subprocess.call("rabbitvcs update " + path, shell=True)
-
-    def browse(self, paths):
-        path = self.get_path(paths)
-        if not path:
-            return
-
-        if os.path.isfile(path):
-            path = os.path.dirname(path)
-        
-        subprocess.call("rabbitvcs browser " + path, shell=True)
+        subprocess.call("rabbitvcs " + command + " " + path, shell=True)
 
 
 class RabbitCommitCommand(sublime_plugin.WindowCommand, RabbitCommand):
     def run(self, paths=[], parameters=None):
-        self.commit(paths)
+        self.svncommand(paths, "commit")
 
 class RabbitUpdateCommand(sublime_plugin.WindowCommand, RabbitCommand):
     def run(self, paths=[], parameters=None):
-        self.update(paths)
+        self.svncommand(paths, "update")
 
 class RabbitBrowseCommand(sublime_plugin.WindowCommand, RabbitCommand):
     def run(self, paths=[], parameters=None):
-        self.browse(paths)
+        self.svncommand(paths, "browser")
+
+class RabbitLogCommand(sublime_plugin.WindowCommand, RabbitCommand):
+    def run(self, paths=[], parameters=None):
+        self.svncommand(paths, "log")
+
+class RabbitDiffCommand(sublime_plugin.WindowCommand, RabbitCommand):
+    def run(self, paths=[], parameters=None):
+        self.svncommand(paths, "diff")
+
+class RabbitDeleteCommand(sublime_plugin.WindowCommand, RabbitCommand):
+    def run(self, paths=[], parameters=None):
+        self.svncommand(paths, "delete")
+
+class RabbitAddCommand(sublime_plugin.WindowCommand, RabbitCommand):
+    def run(self, paths=[], parameters=None):
+        self.svncommand(paths, "add")
