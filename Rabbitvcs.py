@@ -29,7 +29,7 @@ class RabbitCommand():
         if not path:
             return
 
-        subprocess.call("rabbitvcs " + command + " " + path, shell=True)
+        subprocess.call("rabbitvcs " + command + " " + path, shell=True)    
 
 
 class RabbitCommitCommand(sublime_plugin.WindowCommand, RabbitCommand):
@@ -39,6 +39,7 @@ class RabbitCommitCommand(sublime_plugin.WindowCommand, RabbitCommand):
 class RabbitUpdateCommand(sublime_plugin.WindowCommand, RabbitCommand):
     def run(self, paths=[], parameters=None):
         self.svncommand(paths, "update")
+
 
 class RabbitBrowseCommand(sublime_plugin.WindowCommand, RabbitCommand):
     def run(self, paths=[], parameters=None):
@@ -63,3 +64,11 @@ class RabbitAddCommand(sublime_plugin.WindowCommand, RabbitCommand):
 class RabbitStatusCommand(sublime_plugin.WindowCommand, RabbitCommand):
     def run(self, paths=[], parameters=None):
         self.svncommand(paths, "checkmods") 
+
+class RabbitExportCommand(sublime_plugin.WindowCommand, RabbitCommand):
+    def run(self, paths=[], parameters=None):
+        self.svncommand(paths, "export") 
+
+class RabbitCheckoutCommand(sublime_plugin.WindowCommand, RabbitCommand):
+    def run(self, paths=[], parameters=None):
+        subprocess.call("rabbitvcs checkout", shell=True)    
